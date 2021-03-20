@@ -24,6 +24,11 @@ namespace MarcelStudy.Application
 
         public List<Contato> BuscarPorNome(string nome)
         {
+            if (nome == string.Empty)
+            {
+                throw new InvalidOperationException("O nome não foi preenchido corretamente.");
+            }
+
             var contatos = _contatoRepository.BuscarPorNome(nome);
             return contatos;
         }
